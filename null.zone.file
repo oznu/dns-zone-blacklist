@@ -1,0 +1,14 @@
+; BIND db file for ad servers - point all addresses to an invalid IP
+$TTL	864000	; ten days
+
+@       IN      SOA     ns0.example.net.      hostmaster.example.net. (
+                        2008032800       ; serial number YYMMDDNN
+                        288000   ; refresh  80 hours
+                        72000    ; retry    20 hours
+                        8640000  ; expire  100 days
+                        864000 ) ; min ttl  10 day
+                NS      ns0.example.net.
+
+		A	0.0.0.0
+
+*		IN      A       0.0.0.0
