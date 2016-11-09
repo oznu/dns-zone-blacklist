@@ -1,13 +1,15 @@
 'use strict';
 
-const fs = require('fs');
 const rp = require('request-promise');
-const path = require('path');
 
 const main = () => {
   const whitelist = require('../custom.whitelist');
   const master = require('../custom.blacklist');
-  const dest = path.resolve(__dirname, '../zones.blacklist');
+
+  const formats = [
+    require('./formats/bind'),
+    require('./formats/dnsmasq')
+  ];
 
   return rp.get('https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts')
     .then((hosts) => {
@@ -53,22 +55,10 @@ const main = () => {
       return;
     }, {concurrency: 1})
     .then(() => {
-      return master;
+      return formats;
     })
-    .map((host) => {
-      // Format for bind zone file
-      return `zone "${host}" { type master; notify no; file "null.zone.file"; };`;
-    })
-    .then((hosts) => {
-      return hosts.join('\n');
-    })
-    .then((bind) => {
-      fs.writeFile(dest, bind, (err) => {
-        if (err) {
-          throw err;
-        }
-        console.log(`${master.length} zones saved to ${dest}`);
-      });
+    .map((format) => {
+      return format(master);
     });
 
 };

@@ -1,7 +1,7 @@
 {
-  "name": "bind-zone-blacklist",
+  "name": "dns-zone-blacklist",
   "version": "1.0.0",
-  "description": "A tool to convert host file data to bind dns entries for use with oznu/dns-ad-blocker.",
+  "description": "A tool to convert host file data to bind and dnsmasq dns entries for use with oznu/dns-ad-blocker.",
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "author": "oznu <dev@oz.nu>",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "request": "^2.78.0",
     "request-promise": "^4.1.1"
   }
