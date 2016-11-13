@@ -1,6 +1,7 @@
 'use strict';
 
 const rp = require('request-promise');
+const argv = require('yargs').argv;
 
 const main = () => {
   const whitelist = require('../custom.whitelist');
@@ -49,7 +50,9 @@ const main = () => {
       // Remove subdomains - with dns we can block using a wildcard.
       let find = master.find(x => host.slice(-Math.abs(x.length + 1)) === '.' + x);
       if (!find) {
-        console.log(`Adding zone ${host}`);
+        if (!argv.silent) {
+          console.log(`Adding zone ${host}`);
+        }
         return master.push(host);
       }
       return;
