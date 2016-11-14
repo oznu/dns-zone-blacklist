@@ -1,4 +1,3 @@
-zone "just.a.test.example" { type master; notify no; file "null.zone.file"; };
 zone "ul.cm" { type master; notify no; file "null.zone.file"; };
 zone "po.st" { type master; notify no; file "null.zone.file"; };
 zone "7x.cc" { type master; notify no; file "null.zone.file"; };
