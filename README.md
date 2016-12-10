@@ -4,7 +4,7 @@ This project generates a BIND and DNSMASQ zone files to be used in DNS based AD 
 
 The blacklist is generated using data from the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project which is extending and consolidating hosts files from a variety of sources like adaway.org, mvps.org, malwaredomains.com, someonewhocares.org, yoyo.org, and potentially others.
 
-Since DNS based AD Blockers can support wildcard entries, this tool filters out any subdomains of known adware or malware domains, reducing the number of BIND entries required from over 29,000 to just under 19,000.
+Since DNS based AD Blockers can support wildcard entries, this tool filters out any subdomains of known adware or malware domains, reducing the number of BIND entries required from over 31,000 to just under 21,000.
 
 ## Building the Blacklist
 
