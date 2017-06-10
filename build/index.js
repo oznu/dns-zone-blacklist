@@ -9,7 +9,8 @@ const main = () => {
 
   const formats = [
     require('./formats/bind'),
-    require('./formats/dnsmasq')
+    require('./formats/dnsmasq'),
+    require('./formats/dnsmasq-server')
   ]
 
   return rp.get('https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts')
