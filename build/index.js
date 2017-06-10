@@ -1,69 +1,68 @@
-'use strict';
+'use strict'
 
-const rp = require('request-promise');
-const argv = require('yargs').argv;
+const rp = require('request-promise')
+const argv = require('yargs').argv
 
 const main = () => {
-  const whitelist = require('../custom.whitelist');
-  const master = require('../custom.blacklist');
+  const whitelist = require('../custom.whitelist')
+  const master = require('../custom.blacklist')
 
   const formats = [
     require('./formats/bind'),
     require('./formats/dnsmasq')
-  ];
+  ]
 
   return rp.get('https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts')
     .then((hosts) => {
-      return hosts.split('\n');
+      return hosts.split('\n')
     })
     .map((host) => {
       // Trim whitespace
-      return host.trim();
+      return host.trim()
     })
     .filter((host) => {
       // Remove blank lines and comments
       if (host === '') {
-        return false;
+        return false
       } else if (host.charAt(0) === '#') {
-        return false;
+        return false
       }
-      return true;
+      return true
     })
     .map((host) => {
       // Extract just the hostname
-      return host.split(' ')[1];
+      return host.split(' ')[1]
     })
     .filter((host) => {
       // Filter out whitelisted domains
       if (whitelist.includes(host)) {
-        return false;
+        return false
       }
-      return true;
+      return true
     })
     .then((hosts) => {
       // Sort hosts by length
       return hosts.sort((a, b) => {
-        return a.length - b.length;
-      });
+        return a.length - b.length
+      })
     })
     .map((host) => {
       // Remove subdomains - with dns we can block using a wildcard.
-      let find = master.find(x => host.slice(-Math.abs(x.length + 1)) === '.' + x);
+      let find = master.find(x => host.slice(-Math.abs(x.length + 1)) === '.' + x)
       if (!find) {
         if (!argv.silent) {
-          console.log(`Adding zone ${host}`);
+          console.log(`Adding zone ${host}`)
         }
-        return master.push(host);
+        return master.push(host)
       }
-      return;
+      return
     }, {concurrency: 1})
     .then(() => {
-      return formats;
+      return formats
     })
     .map((format) => {
-      return format(master);
-    });
+      return format(master)
+    })
+}
 
-};
-
-main();
+main()

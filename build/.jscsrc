@@ -1,5 +1,0 @@
-{
-  "preset": "google",
-  "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
-  "maximumLineLength": 200
-}
