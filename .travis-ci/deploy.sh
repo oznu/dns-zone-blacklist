@@ -13,7 +13,7 @@ cd $TRAVIS_BUILD_DIR/travis-build-dir
 yarn install
 
 # Build Blacklist
-node build/index.js
+node build/index.js --silent
 
 # Check to see if we made any changes
 git diff --quiet && git diff --cached --quiet
