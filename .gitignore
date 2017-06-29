@@ -1,1 +1,3 @@
 node_modules
+.travis-ci/deploy.key
+.travis-ci/deploy.key.pub

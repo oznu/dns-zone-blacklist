@@ -1,0 +1,10 @@
+language: node_js
+
+node_js:
+  - "6"
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_b281b2f14922_key -iv $encrypted_b281b2f14922_iv -in .travis-ci/deploy.key.enc -out .travis-ci/deploy.key -d
+  - chmod 400 .travis-ci/deploy.key
+  - eval `ssh-agent -s`
+  - ssh-add .travis-ci/deploy.key
