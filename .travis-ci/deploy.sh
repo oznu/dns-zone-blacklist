@@ -5,7 +5,6 @@ set -x
 git config --global user.email "dev@oz.nu"
 git config --global user.name "oznu"
 
-BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 SSH_REPO=git@github.com:oznu/dns-zone-blacklist.git
 
 # Check to see if we made any changes
