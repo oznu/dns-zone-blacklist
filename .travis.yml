@@ -8,3 +8,7 @@ before_install:
   - chmod 400 .travis-ci/deploy.key
   - eval `ssh-agent -s`
   - ssh-add .travis-ci/deploy.key
+
+script:
+  - yarn install
+  - node build/index.js
