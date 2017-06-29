@@ -1,5 +1,4 @@
 #!/bin/sh
-set -x
 
 # Setup Git
 git config --global user.email "dev@oz.nu"
