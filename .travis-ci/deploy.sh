@@ -12,6 +12,7 @@ cd $TRAVIS_BUILD_DIR/travis-build-dir
 yarn install
 
 # Build Blacklist
+echo "Optimising blacklist, this might take a few minutes..."
 node build/index.js --silent
 
 # Check to see if we made any changes
