@@ -11,6 +11,5 @@ before_install:
 
 script:
   - yarn install
-  - export WORK_DIR="$(pwd)"
   - node build/index.js --silent
   - ./.travis-ci/deploy.sh
