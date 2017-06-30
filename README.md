@@ -8,6 +8,12 @@ The blacklist is generated using data from the [StevenBlack/hosts](https://githu
 
 Since DNS based AD Blockers can support wildcard entries, this tool filters out any subdomains of known adware or malware domains, reducing the number of BIND entries required from over 36,000 to just under 25,000.
 
+| DNS Server | Response Type | Download  | SHA256 Checksum |
+| ---------- |:-------------:|:---------:|:---------------:|
+| Bind | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/zones.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/zones.blacklist.checksum) |
+| Dnsmasq (address) | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist.checksum) |
+| Dnsmasq (server) | NXDOMAIN | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist.checksum) |
+
 ## Blacklist Updates
 
 The blacklists are updated every 24 hours with the latest data from [StevenBlack/hosts](https://github.com/StevenBlack/hosts).
