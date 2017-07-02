@@ -20,7 +20,6 @@ git diff --quiet && git diff --cached --quiet
 if [ $? -ne 0 ]; then
   # Commit and push changes
   echo "DNS Blacklist requires update. Committing and Pushing."
-  git add .
   git commit -a -m 'Automated Update'
   git push
 else
