@@ -16,13 +16,6 @@ echo "Optimising blacklist, this might take a few minutes..."
 node build/index.js --silent
 
 # Check to see if we made any changes
-git diff --quiet && git diff --cached --quiet
-if [ $? -ne 0 ]; then
-  # Commit and push changes
-  echo "DNS Blacklist requires update. Committing and Pushing."
-  git commit -a -m 'Automated Update'
-  git push
-else
-  # No changes made
-  echo "DNS Blacklist is already up-to-date!"
-fi
+git add .
+git commit -a -m 'Automated Update' || echo "Blacklist Already Up-to-date"
+git push
