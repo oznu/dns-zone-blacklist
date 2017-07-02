@@ -2,7 +2,7 @@
 
 # DNS Zone Blacklist Generator
 
-This project generates a BIND and DNSMASQ zone files to be used in DNS based AD Blockers such as [oznu/dns-ad-blocker](https://hub.docker.com/r/oznu/dns-ad-blocker/).
+This project generates a zone file for Bind, Dnsmasq and Unbound DNS servers. It can be used to create DNS based AD Blockers such as [oznu/dns-ad-blocker](https://hub.docker.com/r/oznu/dns-ad-blocker/).
 
 The blacklist is generated using data from the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project which is extending and consolidating hosts files from a variety of sources like adaway.org, mvps.org, malwaredomains.com, someonewhocares.org, yoyo.org, and potentially others.
 
@@ -11,8 +11,10 @@ Since DNS based AD Blockers can support wildcard entries, this tool filters out 
 | DNS Server | Response Type | Download  | SHA256 Checksum |
 | ---------- |:-------------:|:---------:|:---------------:|
 | Bind | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/zones.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/zones.blacklist.checksum) |
-| Dnsmasq (address) | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist.checksum) |
-| Dnsmasq (server) | NXDOMAIN | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist.checksum) |
+| Dnsmasq | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist.checksum) |
+| Dnsmasq | NXDOMAIN | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist.checksum) |
+| Unbound | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/unbound/unbound.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/unbound/unbound.blacklist.checksum) |
+| Unbound | NXDOMAIN | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/unbound/unbound-nxdomain.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/unbound/unbound-nxdomain.blacklist.checksum) |
 
 ## Blacklist Updates
 
