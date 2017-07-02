@@ -8,8 +8,11 @@ before_install:
   - chmod 400 .travis-ci/deploy.key
   - eval `ssh-agent -s`
   - ssh-add .travis-ci/deploy.key
-
-script:
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
-  - ./.travis-ci/deploy.sh
+
+deploy:
+  provider: script
+  script: .travis-ci/deploy.sh
+  on:
+    branch: travis-deploy
