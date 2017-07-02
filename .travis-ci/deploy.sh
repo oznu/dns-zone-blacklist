@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Setup Git
-git config --global user.email "dev@oz.nu"
-git config --global user.name "oznu"
+git config --global push.default simple
+git config user.email "dev@oz.nu"
+git config user.name "oznu"
 
 # Add github remote
 git remote add github git@github.com:oznu/dns-zone-blacklist.git
