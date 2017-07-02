@@ -21,4 +21,4 @@ deploy:
   provider: script
   script: .travis-ci/deploy.sh
   on:
-    branch: master
+    branch: travis-ci-fixes
