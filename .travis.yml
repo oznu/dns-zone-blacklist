@@ -11,6 +11,9 @@ before_install:
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
 
+script:
+  - node build/index.js --silent
+
 deploy:
   provider: script
   script: .travis-ci/deploy.sh
