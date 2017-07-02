@@ -23,4 +23,4 @@ deploy:
   script: .travis-ci/deploy.sh
   skip_cleanup: true
   on:
-    branch: travis-ci-fixes
+    branch: master
