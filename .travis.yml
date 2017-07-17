@@ -11,6 +11,7 @@ before_install:
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
 
 script:
+  - git checkout $BRANCH
   - node build/index.js --silent
 
 deploy:
