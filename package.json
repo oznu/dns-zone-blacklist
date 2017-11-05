@@ -2,7 +2,7 @@
   "name": "dns-zone-blacklist",
   "version": "2.0.0",
   "description": "A tool to convert host file data to bind and dnsmasq dns entries for use with oznu/dns-ad-blocker.",
-  "main": "build/index.js",
+  "main": "build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
