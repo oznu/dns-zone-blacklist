@@ -16,9 +16,9 @@ before_install:
 
 install:
   - docker build -t dns-zone-test .travis-ci/
-  - node build.js
 
 script:
+  - node build.js
   - docker run --rm -v $TRAVIS_BUILD_DIR:/dns-zone-blacklist dns-zone-test
 
 deploy:
