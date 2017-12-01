@@ -18,6 +18,12 @@ class Blacklist {
         template: 'zone "<%= host %>" { type master; notify no; file "null.zone.file"; };'
       },
       {
+        type: 'bind',
+        filename: 'bind-nxdomain.blacklist',
+        template: '<%= host %> CNAME .\n*.<%= host %> CNAME .',
+        header: `$TTL 60\n@ IN SOA localhost. dns-zone-blacklist. (2 3H 1H 1W 1H)\ndns-zone-blacklist. IN NS localhost.`
+      },
+      {
         type: 'dnsmasq',
         filename: 'dnsmasq.blacklist',
         template: 'address=/<%= host %>/0.0.0.0'
@@ -61,6 +67,11 @@ class Blacklist {
     // Build a zone blacklist for each format type
     this.formats.forEach((format) => {
       let zoneFile = this.blacklist.map(x => ejs.render(format.template, {host: x})).join('\n')
+
+      if (format.header) {
+        zoneFile = format.header + '\n\n' + zoneFile
+      }
+
       let sha256 = crypto.createHash('sha256').update(zoneFile).digest('hex')
       let dest = path.resolve(__dirname, `${format.type}/${format.filename}`)
 
