@@ -1,5 +1,8 @@
 language: node_js
 
+services:
+  - docker
+
 node_js:
   - "8"
 
@@ -9,10 +12,14 @@ git:
 before_install:
   - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
+  - git checkout $BRANCH
+
+before_script:
+  - docker build -t dns-zone-test .travis-ci/
+  - node build.js
 
 script:
-  - git checkout $BRANCH
-  - node build.js
+  - docker run --rm -v $TRAVIS_BUILD_DIR:/dns-zone-blacklist dns-zone-test
 
 deploy:
   provider: script
