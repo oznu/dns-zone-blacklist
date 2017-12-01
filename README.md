@@ -4,12 +4,11 @@
 
 This project generates a zone file for [BIND](https://en.wikipedia.org/wiki/BIND), [Dnsmasq](https://en.wikipedia.org/wiki/Dnsmasq) and [Unbound](https://en.wikipedia.org/wiki/Unbound_(DNS_server)) DNS servers using data from the [StevenBlack/hosts](https://github.com/StevenBlack/hosts) project. The generated zone files can be used to block ads and malware for an entire network when used with a local DNS server.
 
-DNS based ad blockers can support wildcard entries. This tool filters out any subdomains of known adware or malware domains, reducing the number of zone entries required from **42,964** down to **31,199**.
+DNS based ad blockers can support wildcard entries. This tool filters out any subdomains of known adware or malware domains, reducing the number of zone entries required from **43,000** down to **31,220**.
 
 | DNS Server | Response Type | Download  | SHA256 Checksum |
 | ---------- |:-------------:|:---------:|:---------------:|
 | BIND | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/zones.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/zones.blacklist.checksum) |
-| BIND (RPZ) | NXDOMAIN | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/bind-nxdomain.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/bind/bind-nxdomain.blacklist.checksum) |
 | Dnsmasq | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq.blacklist.checksum) |
 | Dnsmasq | NXDOMAIN | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/dnsmasq/dnsmasq-server.blacklist.checksum) |
 | Unbound | 0.0.0.0 | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/unbound/unbound.blacklist) | [link](https://raw.githubusercontent.com/oznu/dns-zone-blacklist/master/unbound/unbound.blacklist.checksum) |
