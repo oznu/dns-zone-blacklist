@@ -14,9 +14,8 @@ before_install:
   - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
   - git checkout $BRANCH
 
-install:
+before_script:
   - docker build -t dns-zone-test .travis-ci/
-  - npm install
   - node build.js
 
 script:
