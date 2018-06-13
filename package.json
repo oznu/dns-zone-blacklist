@@ -9,8 +9,8 @@
   "author": "oznu <dev@oz.nu>",
   "license": "MIT",
   "dependencies": {
-    "ejs": "^2.5.7",
-    "request": "^2.78.0",
-    "request-promise": "^4.1.1"
+    "ejs": "^2.6.1",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
   }
 }
