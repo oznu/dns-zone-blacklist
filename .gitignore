@@ -2,3 +2,5 @@ node_modules
 .travis-ci/deploy.key
 .travis-ci/deploy.key.pub
 travis-build-dir
+yarn-error.log
+yarn.lock
