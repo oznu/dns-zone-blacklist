@@ -41,7 +41,7 @@ class Blacklist {
       {
         type: 'unbound',
         filename: 'unbound-nxdomain.blacklist',
-        template: 'local-zone: "<%= host %>" static'
+        template: 'local-zone: "<%= host %>" always_nxdomain'
       }
     ]
   }
