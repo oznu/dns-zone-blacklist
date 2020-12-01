@@ -11,7 +11,7 @@ class Blacklist {
     this.whitelist = require('./custom.whitelist')
     this.blacklist = require('./custom.blacklist')
     // check for custom.formats file
-    let custom_formats = './custom.formats.json1'
+    let custom_formats = './custom.formats.json'
     fs.access(custom_formats, fs.F_OK, (nofile) => {
       if (nofile) {
         // file does not exist
@@ -58,8 +58,9 @@ class Blacklist {
         return
       }
       //file exists
-      console.log(`Using custom formats found in ${path}.`)
-      this.formats = require('./custom.formats')
+      console.log(`Using custom formats found in ${custom_formats}.`)
+      let file =  fs.readFileSync(custom_formats)
+      this.formats = JSON.parse(file); 
     })
   }
 

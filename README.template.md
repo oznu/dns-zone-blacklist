@@ -47,3 +47,7 @@ Custom entries can be added to the custom.blacklist.json file in the root of thi
 ### Whitelist
 
 Any domains you wish to exclude from the blacklist can be added to the custom.whitelist.json file in the root of this project before building.
+
+### Custom formats
+
+You can copy `./custom.formats.json.example` to `./custom.formats.json` and customize formats or enable/disable formats before running `node build.js`.
