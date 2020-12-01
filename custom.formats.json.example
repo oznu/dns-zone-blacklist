@@ -1,5 +1,4 @@
 [
-  // In this example file, only one format is enabled. 
   {
     "type": "bind",
     "filename": "zones.blacklist",

@@ -102,13 +102,6 @@ class Blacklist {
       }
     })
 
-    // write array to json file
-    let custom_formats_file = JSON.stringify(this.formats, null, 2);
-    fs.writeFile('custom.formats.json', custom_formats_file, (err) => {
-        if (err) throw err;
-        console.log('Data written to file');
-    }); 
-
     // Update the README.md file
     let readmeTemplate = fs.readFileSync(path.resolve(__dirname, 'README.template.md'), 'utf8')
     let readme = ejs.render(readmeTemplate, {
