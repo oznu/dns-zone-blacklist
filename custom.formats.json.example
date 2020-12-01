@@ -1,0 +1,40 @@
+[
+  // In this example file, only one format is enabled. 
+  {
+    "type": "bind",
+    "filename": "zones.blacklist",
+    "enabled": false,
+    "template": "zone \"<%= host %>\" { type master; notify no; file \"null.zone.file\"; };"
+  },
+  {
+    "type": "bind",
+    "filename": "bind-nxdomain.blacklist",
+    "enabled": true,
+    "template": "<%= host %> CNAME .\n*.<%= host %> CNAME .",
+    "header": "$TTL 60\n@ IN SOA localhost. dns-zone-blacklist. (2 3H 1H 1W 1H)\ndns-zone-blacklist. IN NS localhost."
+  },
+  {
+    "type": "dnsmasq",
+    "filename": "dnsmasq.blacklist",
+    "enabled": false,
+    "template": "address=/<%= host %>/0.0.0.0"
+  },
+  {
+    "type": "dnsmasq",
+    "filename": "dnsmasq-server.blacklist",
+    "enabled": false,
+    "template": "server=/<%= host %>/"
+  },
+  {
+    "type": "unbound",
+    "filename": "unbound.blacklist",
+    "enabled": false,
+    "template": "local-zone: \"<%= host %>\" redirect\nlocal-data: \"<%= host %> A 0.0.0.0\""
+  },
+  {
+    "type": "unbound",
+    "filename": "unbound-nxdomain.blacklist",
+    "enabled": false,
+    "template": "local-zone: \"<%= host %>\" always_nxdomain"
+  }
+]

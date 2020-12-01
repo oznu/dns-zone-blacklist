@@ -1,4 +1,5 @@
 node_modules
+custom.formats.json
 .travis-ci/deploy.key
 .travis-ci/deploy.key.pub
 travis-build-dir
