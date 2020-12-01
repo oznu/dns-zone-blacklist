@@ -91,6 +91,14 @@ class Blacklist {
           zoneFile = format.header + '\n\n' + zoneFile
         }
 
+        fs.mkdir(path.join(__dirname, format.type), 
+          { recursive: true }, (err) => { 
+            if (err) { 
+              return console.error(err); 
+            } 
+            console.log(`Directory ${format.type} created successfully!`); 
+          }); 
+
         let sha256 = crypto.createHash('sha256').update(zoneFile).digest('hex')
         let dest = path.resolve(__dirname, `${format.type}/${format.filename}`)
 
