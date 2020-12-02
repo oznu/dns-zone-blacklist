@@ -36,7 +36,7 @@ class Blacklist {
       {
         type: 'unbound',
         filename: 'unbound.blacklist',
-        template: 'local-zone: "<%= host %>" redirect\nlocal-data: "<%= host %> A 0.0.0.0"'
+        template: 'local-zone: "<%= host %>" refuse'
       },
       {
         type: 'unbound',
