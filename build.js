@@ -5,6 +5,7 @@ const ejs = require('ejs')
 const path = require('path')
 const crypto = require('crypto')
 const rp = require('request-promise')
+const tlds = require('tlds')
 
 class Blacklist {
   constructor () {
@@ -59,7 +60,7 @@ class Blacklist {
       .filter(x => !this.whitelist.includes(x))
       .sort((a, b) => a.length - b.length)
       .map(host => {
-        if (!this.blacklist.find(x => host.slice(-Math.abs(x.length + 1)) === '.' + x)) {
+        if (!this.blacklist.find(x => host.slice(-Math.abs(x.length + 1)) === '.' + x) && !tlds.includes(host)) {
           this.blacklist.push(host)
         }
       })
