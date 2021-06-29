@@ -1,4 +1,5 @@
 [![Travis branch](https://img.shields.io/travis/oznu/dns-zone-blacklist/master.svg)](https://travis-ci.org/oznu/dns-zone-blacklist)
+[![AUR package](https://img.shields.io/aur/version/dns-zone-blacklist-git)](https://aur.archlinux.org/packages/dns-zone-blacklist-git/)
 
 # DNS Zone Blacklist Generator
 
